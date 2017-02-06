@@ -1,8 +1,11 @@
-#ifndef MAINVIEW_H
-#define MAINVIEW_H
+#ifndef WINDOW_H
+#define WINDOW_H
 
 #include <QWidget>
-#include <QTabWidget>
+#include <QTableWidget>
+
+#include "clockview.h"
+#include "chronometerview.h"
 
 class QTabWidget;
 
@@ -16,4 +19,4 @@ private:
     QTabWidget *tabWidget;
 };
 
-#endif // MAINVIEW_H
+#endif // WINDOW_H

@@ -1,13 +1,15 @@
 HEADERS += \
     mainview.h \
     clockview.h \
-    chronometerview.h
+    chronometerview.h \
+    chronometer.h
 
 SOURCES += \
     mainview.cpp \
     clockview.cpp \
     chronometerview.cpp \
-    main.cpp
+    main.cpp \
+    chronometer.cpp
 
 TARGET = Chrono
 target.files = Chrono

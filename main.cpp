@@ -1,4 +1,3 @@
-#include "mainview.h"
 #include <QApplication>
 
 #include "mainview.h"

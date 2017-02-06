@@ -2,8 +2,8 @@
 #define CHRONOMETERVIEW_H
 
 #include <QWidget>
-#include <QLabel>
-#include <QVBoxLayout>
+
+#include "chronometer.h"
 
 class ChronometerView : public QWidget {
     Q_OBJECT
