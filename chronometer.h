@@ -11,6 +11,7 @@
 #include <QTimer>
 #include <QLabel>
 #include <QString>
+#include <QListWidget>
 
 class Chronometer : public QWidget {
     Q_OBJECT
@@ -26,6 +27,7 @@ private:
    QGridLayout *chronometerLayout;
    QHBoxLayout *buttonLayout;
    QVBoxLayout *timeLayout;
+   QVBoxLayout *allTimesLayout;
 
    QPushButton *resetButton;
    QPushButton *startButton;
@@ -34,6 +36,7 @@ private:
 
    QLCDNumber *num;
 
+   QListWidget *listWidget;
    int seconds;
 
 private slots:

@@ -16,17 +16,17 @@ Chronometer::Chronometer(QWidget *parent) : QWidget(parent) {
 
     connect(timer, SIGNAL(timeout()), this, SLOT(showTime()));
 
-    seconds=0;
+    seconds = 0;
 
     connect(startButton, SIGNAL(clicked()), this, SLOT(startTime()));
     connect(stopButton, SIGNAL(clicked()), this, SLOT(stopTime()));
     connect(resetButton, SIGNAL(clicked()), this, SLOT(resetTime()));
     connect(finishButton, SIGNAL(clicked()), this, SLOT(finish()));
 
-    QString text = time->toString("hh:mm:ss");
-    num->display(text);
-    num->setStyleSheet("* { background-color:rgb(0,0,255); color:rgb(255,255,255); }}");
-    num->setSegmentStyle(QLCDNumber::Filled);
+    QString text = time -> toString("hh:mm:ss");
+    num -> display(text);
+    num -> setStyleSheet("* { background-color:rgb(0, 0, 255); color:rgb(255, 255, 255); }}");
+    num -> setSegmentStyle(QLCDNumber::Filled);
 
     buttonLayout = new QHBoxLayout;
     buttonLayout -> addWidget(startButton);
@@ -39,8 +39,19 @@ Chronometer::Chronometer(QWidget *parent) : QWidget(parent) {
     timeLayout -> addStretch();
 
     chronometerLayout = new QGridLayout;
-    chronometerLayout->addLayout(buttonLayout,0,0);
-    chronometerLayout->addLayout(timeLayout,1,0);
+    chronometerLayout -> addLayout(buttonLayout, 0, 0);
+    chronometerLayout -> addLayout(timeLayout, 1, 0);
+
+    QLabel *titleList = new QLabel(tr("Listado de tiempos:"));
+
+    allTimesLayout = new QVBoxLayout;
+    listWidget = new QListWidget(this);
+
+    allTimesLayout -> addWidget(titleList);
+    allTimesLayout -> addWidget(listWidget);
+    allTimesLayout -> addStretch();
+
+    chronometerLayout -> addLayout(allTimesLayout, 3, 0);
 
     setLayout(chronometerLayout);
 }
@@ -66,13 +77,14 @@ void Chronometer::stopTime() {
 }
 
 void Chronometer::resetTime() {
-    time -> setHMS(0,0,0);
+    time -> setHMS(0, 0, 0);
     QString text = time -> toString("hh:mm:ss");
     num -> display(text);
 
-    seconds=0;
-    stopButton->setDisabled(1);
-    startButton->setEnabled(1);
+    seconds = 0;
+    stopButton -> setDisabled(1);
+    resetButton -> setDisabled(1);
+    startButton -> setEnabled(1);
 
     stopTime();
 }
@@ -87,6 +99,13 @@ void Chronometer::showTime() {
 }
 
 void Chronometer::finish() {
-    stopTime();
+    QTime newtime = time -> addSecs(seconds);
+    QString text = newtime.toString("hh:mm:ss");
+    QByteArray bytearray = text.toLatin1();
+    const char *c_str2 = bytearray.data();
+
+    new QListWidgetItem(c_str2, listWidget);
+
+    resetTime();
 }
 
