@@ -1,10 +1,10 @@
 #include "chronometer.h"
 
 Chronometer::Chronometer(QWidget *parent) : QWidget(parent) {
-    startButton = new QPushButton("Start");
-    stopButton = new QPushButton("Stop");
-    resetButton = new QPushButton("Reset");
-    finishButton = new QPushButton("Finish");
+    startButton = new QPushButton("Iniciar");
+    stopButton = new QPushButton("Parar");
+    resetButton = new QPushButton("Reiniciar");
+    finishButton = new QPushButton("Finalizar");
 
     num = new QLCDNumber();
     // num->setNumDigits(8);
