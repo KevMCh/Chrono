@@ -1,5 +1,11 @@
 #include "mainview.h"
 
+/**
+ * Menu panel builder.
+ *
+ * @brief MainView::MainView
+ * @param parent
+ */
 MainView::MainView(QWidget *parent) : QWidget(parent) {
 
     tabWidget = new QTabWidget;

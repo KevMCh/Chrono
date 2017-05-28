@@ -1,5 +1,11 @@
 #include "infoview.h"
 
+/**
+ * Information panel builder.
+ *
+ * @brief InfoView::InfoView
+ * @param parent
+ */
 InfoView::InfoView(QWidget *parent) : QWidget(parent) {
     QLabel *description = new QLabel(QString::fromUtf8("<b>Sistema de cronómetro</b>"
                                                        "<br>"

@@ -1,3 +1,12 @@
+/**
+ * Chronometer project
+ *
+ * Project developed in Qt for an embedded system.
+ *
+ * Class for the chronometer view. Panel to show
+ * the chronometer.
+ */
+
 #ifndef CHRONOMETERVIEW_H
 #define CHRONOMETERVIEW_H
 

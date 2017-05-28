@@ -1,3 +1,12 @@
+/**
+ * Chronometer project
+ *
+ * Project developed in Qt for an embedded system.
+ *
+ * Class for the mode of use panel. Panel where
+ * you can see the mode of use.
+ */
+
 #ifndef CLOCKVIEW_H
 #define CLOCKVIEW_H
 

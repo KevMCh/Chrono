@@ -2,7 +2,6 @@ HEADERS += \
     mainview.h \
     chronometerview.h \
     chronometer.h \
-    timerview.h \
     infoview.h
 
 SOURCES += \
@@ -10,7 +9,6 @@ SOURCES += \
     chronometerview.cpp \
     main.cpp \
     chronometer.cpp \
-    timerview.cpp \
     infoview.cpp
 
 TARGET = Chrono

@@ -1,3 +1,12 @@
+/**
+ * Chronometer project
+ *
+ * Project developed in Qt for an embedded system.
+ *
+ * Chronometer class. Chronometer interface and
+ * funcionality.
+ */
+
 #ifndef CHRONOMETER_H
 #define CHRONOMETER_H
 

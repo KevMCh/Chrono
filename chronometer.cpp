@@ -1,5 +1,11 @@
 #include "chronometer.h"
 
+/**
+ * Chronometer builder.
+ *
+ * @brief Chronometer::Chronometer
+ * @param parent
+ */
 Chronometer::Chronometer(QWidget *parent) : QWidget(parent) {
     startButton = new QPushButton("Iniciar");
     stopButton = new QPushButton("Parar");
@@ -7,7 +13,6 @@ Chronometer::Chronometer(QWidget *parent) : QWidget(parent) {
     finishButton = new QPushButton("Finalizar");
 
     num = new QLCDNumber();
-    // num->setNumDigits(8);
 
     time = new QTime;
     time -> setHMS(0,0,0,0);
@@ -56,8 +61,18 @@ Chronometer::Chronometer(QWidget *parent) : QWidget(parent) {
     setLayout(chronometerLayout);
 }
 
+/**
+ * Destructor.
+ *
+ * @brief Chronometer::~Chronometer
+ */
 Chronometer::~Chronometer() {}
 
+/**
+ * Function to start the chronometer clock.
+ *
+ * @brief Chronometer::startTime
+ */
 void Chronometer::startTime() {
     startButton -> setDisabled(1);
     stopButton -> setEnabled(1);
@@ -67,6 +82,11 @@ void Chronometer::startTime() {
     timer -> start(1000);
 }
 
+/**
+ * Function to stop the chronometer clock.
+ *
+ * @brief Chronometer::stopTime
+ */
 void Chronometer::stopTime() {
     stopButton -> setDisabled(1);
     startButton -> setEnabled(1);
@@ -76,6 +96,11 @@ void Chronometer::stopTime() {
     timer -> stop();
 }
 
+/**
+ * Function reset, clean the chronometer clock.
+ *
+ * @brief Chronometer::resetTime
+ */
 void Chronometer::resetTime() {
     time -> setHMS(0, 0, 0);
     QString text = time -> toString("hh:mm:ss");
@@ -89,6 +114,11 @@ void Chronometer::resetTime() {
     stopTime();
 }
 
+/**
+ * Function to update the chronometer clock.
+ *
+ * @brief Chronometer::showTime
+ */
 void Chronometer::showTime() {
     QTime newtime;
     seconds = seconds + 1;
@@ -98,6 +128,12 @@ void Chronometer::showTime() {
     num -> display(text);
 }
 
+/**
+ * Function to save the time in the list and reset
+ * the chronometer clock.
+ *
+ * @brief Chronometer::finish
+ */
 void Chronometer::finish() {
     QTime newtime = time -> addSecs(seconds);
     QString text = newtime.toString("hh:mm:ss");
