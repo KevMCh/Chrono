@@ -4,7 +4,7 @@
 #include <QWidget>
 #include <QTableWidget>
 
-#include "clockview.h"
+#include "infoview.h"
 #include "chronometerview.h"
 
 class QTabWidget;

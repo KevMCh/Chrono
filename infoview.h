@@ -5,11 +5,11 @@
 #include <QLabel>
 #include <QVBoxLayout>
 
-class ClockView : public QWidget {
+class InfoView : public QWidget {
     Q_OBJECT
 
 public:
-    explicit ClockView(QWidget *parent = 0);
+    explicit InfoView(QWidget *parent = 0);
 };
 
 #endif // CLOCKVIEW_H
