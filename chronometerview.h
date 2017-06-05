@@ -1,6 +1,15 @@
 /**
  * Chronometer project
  *
+ * Universidad de La Laguna
+ * Escuela Superior de Ingeniería y Tecnología
+ * Master en Ingeniería Informática
+ * Sistemas Operativos y Sistemas Empotrados
+ *
+ * @author	Kevin Martín
+ * @version	0.0.0
+ * @email: marchinkev@gmail.com
+ *
  * Project developed in Qt for an embedded system.
  *
  * Class for the chronometer view. Panel to show

@@ -10,18 +10,15 @@ InfoView::InfoView(QWidget *parent) : QWidget(parent) {
     QLabel *description = new QLabel(QString::fromUtf8("<b>Sistema de cronómetro</b>"
                                                        "<br>"
                                                        "<pre>"
-                                                        "El modo de empleo es a través de la interfaz de botones, iniciando el temporizador,\n"
-                                                        "deteniéndolo o resteandolo. Una vez finalizado la cuenta del tiempo se guardará en\n"
-                                                        "el listado de tiempos."
+                                                        "El modo de empleo:"
                                                         "<ul>"
-                                                         "<li><b>Iniciar:</b> Inicia la cuenta del cronómetro.</li>"
-                                                         "<li><b>Parar:</b> Para la cuenta del cronómetro.</li>"
-                                                         "<li><b>Reiniciar:</b> Restaura la cuenta del cronómetro.</li>"
-                                                         "<li><b>Finalizar:</b> Finaliza la cuenta y guarda el tiempo en el listado.<li>"
+                                                         "<li><b>Iniciar:</b> Inicia la cuenta.</li>"
+                                                         "<li><b>Parar:</b> Pausa la cuenta.</li>"
+                                                         "<li><b>Reiniciar:</b> Restaura la cuenta.</li>"
+                                                         "<li><b>Finalizar:</b> Finaliza y guarda el <br>"
+                                                         "tiempo en el listado.<li>"
                                                         "</ul>"
                                                        "</pre>"));
-
-    QLabel *btnDescription = new QLabel(tr(""));
 
     QVBoxLayout *mainLayout = new QVBoxLayout;
     mainLayout -> addWidget(description);

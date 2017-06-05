@@ -14,8 +14,7 @@ int main(int argc, char *argv[]) {
     QApplication app(argc, argv);
 
     MainView window;
-    window.setFixedSize(635,450);
-    window.show();
+    window.showFullScreen();
 
     return app.exec();
 }

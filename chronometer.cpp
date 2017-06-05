@@ -7,11 +7,25 @@
  * @param parent
  */
 Chronometer::Chronometer(QWidget *parent) : QWidget(parent) {
+
+    // Buttons layout
     startButton = new QPushButton("Iniciar");
     stopButton = new QPushButton("Parar");
     resetButton = new QPushButton("Reiniciar");
     finishButton = new QPushButton("Finalizar");
 
+    buttonLayout = new QHBoxLayout;
+    buttonLayout -> addWidget(startButton);
+    buttonLayout -> addWidget(stopButton);
+    buttonLayout -> addWidget(resetButton);
+    buttonLayout -> addWidget(finishButton);
+
+    connect(startButton, SIGNAL(clicked()), this, SLOT(startTime()));
+    connect(stopButton, SIGNAL(clicked()), this, SLOT(stopTime()));
+    connect(resetButton, SIGNAL(clicked()), this, SLOT(resetTime()));
+    connect(finishButton, SIGNAL(clicked()), this, SLOT(finish()));
+
+    // Chronometre layout
     num = new QLCDNumber();
 
     time = new QTime;
@@ -23,30 +37,16 @@ Chronometer::Chronometer(QWidget *parent) : QWidget(parent) {
 
     seconds = 0;
 
-    connect(startButton, SIGNAL(clicked()), this, SLOT(startTime()));
-    connect(stopButton, SIGNAL(clicked()), this, SLOT(stopTime()));
-    connect(resetButton, SIGNAL(clicked()), this, SLOT(resetTime()));
-    connect(finishButton, SIGNAL(clicked()), this, SLOT(finish()));
-
     QString text = time -> toString("hh:mm:ss");
     num -> display(text);
     num -> setStyleSheet("* { background-color:rgb(0, 0, 255); color:rgb(255, 255, 255); }}");
     num -> setSegmentStyle(QLCDNumber::Filled);
 
-    buttonLayout = new QHBoxLayout;
-    buttonLayout -> addWidget(startButton);
-    buttonLayout -> addWidget(stopButton);
-    buttonLayout -> addWidget(resetButton);
-    buttonLayout -> addWidget(finishButton);
-
     timeLayout = new QVBoxLayout;
     timeLayout -> addWidget(num);
     timeLayout -> addStretch();
 
-    chronometerLayout = new QGridLayout;
-    chronometerLayout -> addLayout(buttonLayout, 0, 0);
-    chronometerLayout -> addLayout(timeLayout, 1, 0);
-
+    // List of times layout
     QLabel *titleList = new QLabel(tr("Listado de tiempos:"));
 
     allTimesLayout = new QVBoxLayout;
@@ -56,6 +56,10 @@ Chronometer::Chronometer(QWidget *parent) : QWidget(parent) {
     allTimesLayout -> addWidget(listWidget);
     allTimesLayout -> addStretch();
 
+    // General Layout
+    chronometerLayout = new QGridLayout;
+    chronometerLayout -> addLayout(buttonLayout, 0, 0);
+    chronometerLayout -> addLayout(timeLayout, 1, 0);
     chronometerLayout -> addLayout(allTimesLayout, 3, 0);
 
     setLayout(chronometerLayout);
